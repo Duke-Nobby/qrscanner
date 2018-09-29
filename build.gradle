@@ -1,0 +1,108 @@
+apply plugin: 'com.android.library'
+
+//爲Project加ext屬性進行引用
+def globalConfiguration = rootProject.extensions.getByName("ext")
+
+android {
+    compileSdkVersion globalConfiguration.getAt("androidCompileSdkVersion")
+    buildToolsVersion globalConfiguration.getAt("androidBuildToolsVersion")
+
+    defaultConfig {
+        minSdkVersion globalConfiguration.getAt("androidMinSdkVersion")
+        targetSdkVersion globalConfiguration.getAt("androidTargetSdkVersion")
+        versionCode 1
+//        versionName "1.0.0"
+        versionName "1.0.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+/*此处配置gradle编译时，标记了changing=true的dependencies都会在一段时间后（0 seconds即立刻）重新下载更新相应依赖在本地的缓存*/
+//configurations.all {
+//    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+//}
+//
+//dependencies {
+//    def cardappDependencies = rootProject.ext.cardappDependencies
+//    compile cardappDependencies.cardappUtils
+//    def commonDependencies = rootProject.ext.commonDependencies
+//    compile commonDependencies.appcompatV7
+//
+//    compile fileTree(dir: 'libs', include: ['*.jar'])
+//    testCompile 'junit:junit:4.12'
+//    compile 'com.google.zxing:core:2.2'
+//
+//    /* 友盟数据统计 */
+//    compile 'com.umeng.analytics:analytics:latest.integration'
+//}
+//
+///*脚本：公库上传到内网服务器maven仓库*/
+//apply plugin: 'maven'
+//afterEvaluate { project ->
+//
+//    uploadArchives {
+//        configuration = configurations.archives
+//        repositories.mavenDeployer {
+////            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+//            repository(url: RELEASE_REPOSITORY_URL) {
+//                authentication(userName: getRepositoryUsername(), password: getRepositoryPassword())
+//            }
+//            snapshotRepository(url: SNAPSHOT_REPOSITORY_URL) {
+//                authentication(userName: getRepositoryUsername(), password: getRepositoryPassword())
+//            }
+//
+//            pom.project {
+//                name POM_ARTIFACT_ID
+//                packaging 'aar'
+//                description DESCRIPTION
+////                url 'http://127.0.0.1:8081/nexus/content/repositories/juude-id/'//仓库地址
+//                groupId GROUP
+//                artifactId POM_ARTIFACT_ID //LibA
+//                version android.defaultConfig.versionName
+//            }
+//        }
+//    }
+//    //androidJavadocs无法被找到，无法运行
+////    task AndroidJavadocs(type: Javadoc) {
+////        source = android.sourceSets.main.java.srcDirs
+////        classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+////    }
+////    task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
+////        classifier = 'javadoc'
+////        from androidJavadocs.destinationDir
+////    }
+//    /**
+//     * 上传源码文件到库源
+//     */
+//    task androidSourcesJar(type: Jar) {
+//        classifier = 'sources'
+//        from android.sourceSets.main.java.sourceFiles
+//    }
+//    artifacts {
+//        //上传源码文件到库源
+//        archives androidSourcesJar
+////        archives androidJavadocsJar
+//    }
+//}
+//
+//def isReleaseBuild() {
+//    return VERSION_NAME.contains("SNAPSHOT") == false
+//}
+//
+//def getRepositoryUsername() {
+//    return hasProperty('NEXUS_USERNAME') ? NEXUS_USERNAME : ""
+//}
+//
+//def getRepositoryPassword() {
+//    return hasProperty('NEXUS_PASSWORD') ? NEXUS_PASSWORD : ""
+//}
+//
+//task mappings << {
+//    println conf2ScopeMappings.mappings
+//}

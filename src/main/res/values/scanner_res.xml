@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+扫码模块：com.scaner.module
+配置资源
+ -->
+<resources>
+    <!--<color name="qrscanner_titlebar_bg">#c0ffbd21</color>-->
+    <!--<color name="qrscanner_colorAccent">#c099cc00</color> &lt;!&ndash; Android standard ICS color &ndash;&gt;-->
+</resources>

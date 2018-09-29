@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation"
+    >
+
+    <string name="scanner_qr_code_auto_in_box">Please place the QR Code inside the square to scan.</string>
+    <string name="scanner_onecode">将条形码放入框内，即可自动扫描</string>
+    <string name="scanner_qr">二维码</string>
+    <string name="scanner_one">条形码</string>
+    <string name="scanner_help">帮助</string>
+    <string name="scanner_title">Scan QR Code</string>
+    <string name="scanner_result">扫描结果</string>
+    <string name="scanner_content">扫描内容</string>
+    <string name="scanner_back">返回</string>
+    <string name="scanner_button_cancel">取消</string>
+    <string name="scanner_button_ok">确定</string>
+    <string name="scanner_msg_camera_framework_bug">抱歉，Android相机可能被占用，您可能需要重启设备。</string>
+    <string name="scanner_msg_default_format">格式</string>
+    <string name="scanner_msg_default_meta">元数据</string>
+    <string name="scanner_msg_default_time">时间</string>
+    <string name="scanner_msg_default_type">类型</string>
+    <string name="scanner_Invalid_QR_Code">Invalid QR Code</string>
+
+</resources>
